@@ -70,19 +70,22 @@ if ( ! function_exists( 'twentytwentyone_child_setup' ) ) :
 			)
 		);
 
+
 	}
 endif;
 add_action( 'init', 'twentytwentyone_child_setup' );
 
+function mamun_gutenberg_blocks() {
+	wp_register_script( 'custom-cta-js', get_stylesheet_directory_uri() . '/build/index.js', array( 'wp-blocks' ) );
+	register_block_type(
+		'mamun/cta-block',
+		array(
+			'editor_script' => 'custom-cta-js',
+		)
+	);
+}
+
+add_action( 'init', 'mamun_gutenberg_blocks' );
 
 
 
-
-
-
-
-
-
-
-
-require_once get_stylesheet_directory() . '/blocks/gutenberg.php';
