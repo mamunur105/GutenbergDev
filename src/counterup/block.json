@@ -1,14 +1,14 @@
 {
 	"apiVersion": 2,
-	"name": "create-block/counterup",
+	"name": "gutenblock-addons/counterup",
 	"title": "Counterup",
-	"category": "widgets",
+	"category": "gutenblock-addons",
 	"icon": "smiley",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "starter",
+	"textdomain": "gutenblock-addons",
 	"editorScript": "file:../../build/index.js",
 	"editorStyle": "file:../../build/index.css",
 	"style": "file:../../build/style-index.css"

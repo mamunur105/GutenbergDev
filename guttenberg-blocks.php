@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Starter Block
+ * Plugin Name:       Gutenberg Addons
  * Description:       Example block written with ESNext standard and JSX support – build step required.
  * Requires at least: 5.7
  * Requires PHP:      7.0
@@ -10,7 +10,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       starter-block
  *
- * @package           create-block
+ * @package           gutenblock-addons
  */
 
 /**
@@ -21,24 +21,66 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
 
-function my_plugin_block_categories( $categories, $post ) {
-	// if ( $post->post_type !== 'post' ) {
-	// 	return $categories;
-	// }
+/**
+ * Add new category.
+ *
+ * @param array  $categories list.
+ * @param object $post .
+ * @return array.
+ */
+function gutenblock_addons_plugin_block_categories( $categories, $post ) {
 	return array_merge(
-		$categories,
 		array(
 			array(
-				'slug'  => 'my-category',
-				'title' => __( 'My category', 'my-plugin' ),
+				'slug'  => 'gutenblock-addons',
+				'title' => __( 'Gutenberg Addons', 'gutenblock-addons' ),
 				'icon'  => 'wordpress',
 			),
-		)
+		),
+		$categories
 	);
 }
-add_filter( 'block_categories', 'my_plugin_block_categories', 10, 2 );
-function create_block_gutenpride_block_init() {
-	register_block_type_from_metadata( __DIR__ . '/src/counterup' );
-	register_block_type_from_metadata( __DIR__ . '/src/notice' );
+
+
+
+
+
+function create_gutenblock_addons_scripts() {
+	$version = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? time() : '1.0';
+	if ( is_admin() ) {
+		wp_enqueue_script( 'blocks-script', plugin_dir_url( __FILE__ ) . '/build/index.js', array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ), $version );
+		wp_enqueue_style( 'gut-style-editor', plugin_dir_url( __FILE__ ) . '/build/index.css', array(), $version );
+	}
+	wp_enqueue_style( 'front-style-editor', plugin_dir_url( __FILE__ ) . '/build/style-index.css', array(), $version );
 }
-add_action( 'init', 'create_block_gutenpride_block_init' );
+
+
+
+/**
+ * Block Registration.
+ *
+ * @return void
+ */
+function create_gutenblock_addons_init() {
+	$block_list = array(
+		'gutenblock-addons/counterup' => array(
+			'style' => 'front-style-editor',
+		),
+		'gutenblock-addons/notice'    => array(
+			'style' => 'front-style-editor',
+		),
+	);
+	foreach ( $block_list as $key => $array ) {
+		register_block_type( $key, $array );
+	}
+}
+
+add_action(
+	'plugins_loaded',
+	function() {
+		add_filter( 'block_categories', 'gutenblock_addons_plugin_block_categories', 10, 2 );
+		add_action( 'init', 'create_gutenblock_addons_init' );
+		add_action( 'enqueue_block_assets', 'create_gutenblock_addons_scripts' );
+	}
+);
+

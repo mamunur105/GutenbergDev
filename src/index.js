@@ -1,2 +1,2 @@
-import './notice/index'
-import './counterup/index'
+import './notice';
+import './counterup';

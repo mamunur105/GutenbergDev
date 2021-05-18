@@ -11,10 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import {
-	useBlockProps,
-	RichText
-} from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -23,10 +20,6 @@ import {
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-// import  attributes from 'attributes';
-/**
- * Import Attribute
- */
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -36,27 +29,10 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-
-export default function Edit( {attributes, setAttributes} ) {
-	const {
-		content
-	 } = attributes;
-	 const onChangeContent = content => {
-		setAttributes({ content });
-	}
+export default function Edit() {
 	return (
-		<div className="gutadns-alert-wrapper" { ...useBlockProps() } >
-			<div className="gutadns-alert">
-				<span className="gutadns-closebtn">×</span>
-				<RichText
-					key='descriptioneditable'
-					className='alert-description'
-					tagName="p"
-					placeholder = "Alert Description"
-					value={content}
-					onChange={ onChangeContent }
-				/>
-			</div>
-		</div>
+		<p { ...useBlockProps() }>
+			{ __( 'Notice – hello from the editor!', 'notice' ) }
+		</p>
 	);
 }

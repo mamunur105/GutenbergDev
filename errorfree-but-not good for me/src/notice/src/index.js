@@ -25,11 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( 'gutenblock-addons/counterup', {
-	title: "Counterup",
-	category: "gutenblock-addons",
-	icon: "smiley",
-	description: "Example block written with ESNext standard and JSX support – build step required.",
+registerBlockType( 'create-block/notice', {
 	/**
 	 * @see ./edit.js
 	 */
