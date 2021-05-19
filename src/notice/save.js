@@ -11,10 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import {
-	useBlockProps,
-	RichText
-} from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -24,23 +21,14 @@ import {
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
-	const {
-		content,
-		type
-	} = attributes;
+export default function save({ attributes }) {
+	const { content, type, bgColor } = attributes;
 	return (
-		<div className="gutadns-alert-wrapper" { ...useBlockProps.save() } >
+		<div className="gutadns-alert-wrapper" {...useBlockProps.save()}>
 			{/* <div className="gutadns-alert"> */}
-			<div className={ `gutadns-alert ${type}`}>
-				<RichText.Content
-					key='descriptioneditable'
-					className='alert-description'
-					tagName="p"
-					value={content}
-				/>
+			<div className={`gutadns-alert ${type}`} style={{ backgroundColor: bgColor }}>
+				<RichText.Content key="descriptioneditable" className="alert-description" tagName="p" value={content} />
 			</div>
 		</div>
 	);
 }
-

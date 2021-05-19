@@ -433,6 +433,9 @@ const attributes = {
     selector: 'div.gutadns-alert',
     attribute: 'class',
     default: 'success'
+  },
+  bgColor: {
+    type: 'string'
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
@@ -476,6 +479,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const {
+  Panel,
   PanelBody,
   PanelRow,
   SelectControl
@@ -508,7 +512,8 @@ function Edit({
 }) {
   const {
     content,
-    type
+    type,
+    bgColor
   } = attributes;
 
   const onChangeContent = content => {
@@ -523,15 +528,22 @@ function Edit({
     });
   };
 
+  const onbgColorChange = bgColor => {
+    setAttributes({
+      bgColor
+    });
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: "gutadns-alert-wrapper"
   }, Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], {
     key: "setting"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Panel, {
+    header: "Notice Settings"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelBody, {
-    title: "Notice Settings",
     initialOpen: true
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelRow, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SelectControl, {
-    label: "Type",
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", null, " Notice Type "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelRow, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SelectControl, {
+    label: "",
     value: type,
     options: [{
       label: 'Danger',
@@ -547,8 +559,16 @@ function Edit({
       value: 'warning'
     }],
     onChange: onChangeType
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: `gutadns-alert ${type}`
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelBody, {
+    initialOpen: true
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", null, " Customize BG Color "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelRow, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["ColorPalette"], {
+    value: bgColor,
+    onChange: onbgColorChange
+  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: `gutadns-alert ${type}`,
+    style: {
+      backgroundColor: bgColor
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     key: "descriptioneditable",
     className: "alert-description",
@@ -688,12 +708,16 @@ function save({
 }) {
   const {
     content,
-    type
+    type,
+    bgColor
   } = attributes;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: "gutadns-alert-wrapper"
   }, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"].save()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: `gutadns-alert ${type}`
+    className: `gutadns-alert ${type}`,
+    style: {
+      backgroundColor: bgColor
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     key: "descriptioneditable",
     className: "alert-description",
