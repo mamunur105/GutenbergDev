@@ -9,18 +9,17 @@
   background-color: #f44336;
   color: white;
 }
-.gutadns-closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+.gutadns-alert.success {
+  background-color: #04AA6D;
 }
-.gutadns-closebtn:hover {
-  color: black;
+.gutadns-alert.info {
+  background-color: #2196F3;
+}
+.gutadns-alert.warning {
+  background-color: #ff9800;
+}
+.gutadns-alert p:last-child {
+  margin: 0;
 }
 /**
  * The following styles get applied both on the front of your site

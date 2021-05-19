@@ -13,8 +13,11 @@ import { __ } from '@wordpress/i18n';
  */
 import {
 	useBlockProps,
+    InspectorControls,
 	RichText
 } from '@wordpress/block-editor';
+
+const { PanelBody, PanelRow, SelectControl } = wp.components;
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -39,15 +42,39 @@ import './editor.scss';
 
 export default function Edit( {attributes, setAttributes} ) {
 	const {
-		content
-	 } = attributes;
-	 const onChangeContent = content => {
+		content,
+		type
+	} = attributes;
+	const onChangeContent = content => {
 		setAttributes({ content });
 	}
+	const onChangeType = type => {
+		setAttributes({ type });
+	}
+
 	return (
 		<div className="gutadns-alert-wrapper" { ...useBlockProps() } >
-			<div className="gutadns-alert">
-				<span className="gutadns-closebtn">×</span>
+			<InspectorControls key="setting">
+				<PanelBody
+					title="Notice Settings"
+					initialOpen={ true }
+				>
+					<PanelRow>
+						<SelectControl
+							label="Type"
+							value={ type }
+							options={ [
+								{ label: 'Danger', value: 'danger' },
+								{ label: 'Success', value: 'success' },
+								{ label: 'Info', value: 'info' },
+								{ label: 'Warning', value: 'warning' },
+							] }
+							onChange={ onChangeType }
+						/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
+			<div className={ `gutadns-alert ${type}`}>
 				<RichText
 					key='descriptioneditable'
 					className='alert-description'

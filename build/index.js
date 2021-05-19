@@ -426,6 +426,13 @@ const attributes = {
     type: 'string',
     source: 'html',
     selector: 'p'
+  },
+  type: {
+    type: 'string',
+    source: 'attribute',
+    selector: 'div.gutadns-alert',
+    attribute: 'class',
+    default: 'success'
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
@@ -468,6 +475,11 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+const {
+  PanelBody,
+  PanelRow,
+  SelectControl
+} = wp.components;
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -495,7 +507,8 @@ function Edit({
   setAttributes
 }) {
   const {
-    content
+    content,
+    type
   } = attributes;
 
   const onChangeContent = content => {
@@ -504,13 +517,39 @@ function Edit({
     });
   };
 
+  const onChangeType = type => {
+    setAttributes({
+      type
+    });
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: "gutadns-alert-wrapper"
-  }, Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "gutadns-alert"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "gutadns-closebtn"
-  }, "\xD7"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
+  }, Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], {
+    key: "setting"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelBody, {
+    title: "Notice Settings",
+    initialOpen: true
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelRow, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SelectControl, {
+    label: "Type",
+    value: type,
+    options: [{
+      label: 'Danger',
+      value: 'danger'
+    }, {
+      label: 'Success',
+      value: 'success'
+    }, {
+      label: 'Info',
+      value: 'info'
+    }, {
+      label: 'Warning',
+      value: 'warning'
+    }],
+    onChange: onChangeType
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: `gutadns-alert ${type}`
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     key: "descriptioneditable",
     className: "alert-description",
     tagName: "p",
@@ -648,19 +687,17 @@ function save({
   attributes
 }) {
   const {
-    content
+    content,
+    type
   } = attributes;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: "gutadns-alert-wrapper"
   }, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"].save()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "gutadns-alert"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "gutadns-closebtn"
-  }, "\xD7"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
+    className: `gutadns-alert ${type}`
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     key: "descriptioneditable",
     className: "alert-description",
     tagName: "p",
-    placeholder: "Alert Description",
     value: content
   })));
 }

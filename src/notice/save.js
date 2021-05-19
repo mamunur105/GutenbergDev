@@ -26,17 +26,17 @@ import {
  */
 export default function save({attributes}) {
 	const {
-		content
-	 } = attributes;
+		content,
+		type
+	} = attributes;
 	return (
 		<div className="gutadns-alert-wrapper" { ...useBlockProps.save() } >
-			<div className="gutadns-alert">
-				<span className="gutadns-closebtn">×</span>
+			{/* <div className="gutadns-alert"> */}
+			<div className={ `gutadns-alert ${type}`}>
 				<RichText.Content
 					key='descriptioneditable'
 					className='alert-description'
 					tagName="p"
-					placeholder = "Alert Description"
 					value={content}
 				/>
 			</div>

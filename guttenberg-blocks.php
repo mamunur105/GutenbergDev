@@ -63,12 +63,8 @@ function create_gutenblock_addons_scripts() {
  */
 function create_gutenblock_addons_init() {
 	$block_list = array(
-		'gutenblock-addons/counterup' => array(
-			'style' => 'front-style-editor',
-		),
-		'gutenblock-addons/notice'    => array(
-			'style' => 'front-style-editor',
-		),
+		'gutenblock-addons/counterup' => array(),
+		'gutenblock-addons/notice'    => array(),
 	);
 	foreach ( $block_list as $key => $array ) {
 		register_block_type( $key, $array );
