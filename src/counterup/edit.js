@@ -11,7 +11,9 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { __experimentalInputControl as InputControl } from '@wordpress/components';
+
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +31,23 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( {attributes, setAttributes} ) {
+	const {
+		counterContent
+	} = attributes;
+	const setCounterContent = ( counterContent ) => {
+		setAttributes({ counterContent });
+	}
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Counterup block – the editor!', 'starter-block' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			<div className="counter" >
+				<RichText
+					key='counterContent'
+					tagName="p"
+					value={ counterContent }
+					onChange={ setCounterContent }
+				/>
+			</div>
+		</div>
 	);
 }

@@ -19,7 +19,7 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
-
+import attributes from './attributes';
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -30,6 +30,7 @@ registerBlockType( 'gutenblock-addons/counterup', {
 	category: "gutenblock-addons",
 	icon: "smiley",
 	description: "Example block written with ESNext standard and JSX support – build step required.",
+	attributes: attributes,
 	/**
 	 * @see ./edit.js
 	 */

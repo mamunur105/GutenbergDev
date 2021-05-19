@@ -218,6 +218,31 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./src/counterup/attributes.js":
+/*!*************************************!*\
+  !*** ./src/counterup/attributes.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const attributes = {
+  counterValue: {
+    type: 'number',
+    source: 'html',
+    selector: 'p'
+  },
+  counterContent: {
+    type: 'string',
+    source: 'html',
+    selector: 'p'
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (attributes);
+
+/***/ }),
+
 /***/ "./src/counterup/edit.js":
 /*!*******************************!*\
   !*** ./src/counterup/edit.js ***!
@@ -234,7 +259,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/counterup/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/counterup/editor.scss");
 
 
 /**
@@ -249,6 +276,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
+
 
 
 /**
@@ -268,8 +296,28 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function Edit() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])(), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Counterup block – the editor!', 'starter-block'));
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    counterContent
+  } = attributes;
+
+  const setCounterContent = counterContent => {
+    setAttributes({
+      counterContent
+    });
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "counter"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    key: "counterContent",
+    tagName: "p",
+    value: counterContent,
+    onChange: setCounterContent
+  })));
 }
 
 /***/ }),
@@ -302,6 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/counterup/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/counterup/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/counterup/save.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./attributes */ "./src/counterup/attributes.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -323,6 +372,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -334,6 +384,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('gut
   category: "gutenblock-addons",
   icon: "smiley",
   description: "Example block written with ESNext standard and JSX support – build step required.",
+  attributes: _attributes__WEBPACK_IMPORTED_MODULE_4__["default"],
 
   /**
    * @see ./edit.js
@@ -390,8 +441,19 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function save() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('counterup – saved content!', 'starter-block'));
+function save({
+  attributes
+}) {
+  const {
+    counterContent
+  } = attributes;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "counter"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+    key: "counterContent",
+    tagName: "p",
+    value: counterContent
+  })));
 }
 
 /***/ }),
@@ -747,6 +809,17 @@ function save({
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["blocks"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["components"]; }());
 
 /***/ }),
 
