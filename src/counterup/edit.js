@@ -11,8 +11,16 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { __experimentalInputControl as InputControl } from '@wordpress/components';
+
+import {
+	useBlockProps,
+    InspectorControls,
+	ColorPalette,
+	RichText
+} from '@wordpress/block-editor';
+
+// import { Panel, PanelBody, PanelRow, SelectControl } = wp.components;
+import { __experimentalNumberControl as NumberControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
 
 
 /**
@@ -33,14 +41,34 @@ import './editor.scss';
  */
 export default function Edit( {attributes, setAttributes} ) {
 	const {
-		counterContent
+		counterContent,
+		counterValue
 	} = attributes;
 	const setCounterContent = ( counterContent ) => {
 		setAttributes({ counterContent });
 	}
+	const setCounterValue = ( counterValue ) => {
+		setAttributes({ counterValue });
+	}
 	return (
 		<div { ...useBlockProps() }>
+			<InspectorControls key="setting">
+				<Panel header="Counter Settings">
+					<PanelBody
+						initialOpen={ true }
+						>
+						<p> Counter Up value</p>
+						<PanelRow>
+							<NumberControl
+								value={counterValue}
+								onChange={ setCounterValue }
+							/>
+						</PanelRow>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
 			<div className="counter" >
+				<span className="countvalue">{ counterValue }</span>
 				<RichText
 					key='counterContent'
 					tagName="p"

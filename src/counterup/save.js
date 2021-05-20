@@ -24,11 +24,13 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 export default function save( {attributes } ) {
 	const {
-		counterContent
+		counterContent,
+		counterValue
 	} = attributes;
 	return (
 		<div { ...useBlockProps.save() }>
 			<div className="counter" >
+				<span className="countvalue">{ counterValue }</span>
 				<RichText.Content
 					key='counterContent'
 					tagName="p"

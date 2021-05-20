@@ -1,8 +1,8 @@
 const attributes = {
 	counterValue: {
-		type: 'number',
+		type: 'string',
 		source: 'html',
-		selector: 'p'
+		selector: 'span.countvalue'
 	},
 	counterContent: {
 		type: 'string',
