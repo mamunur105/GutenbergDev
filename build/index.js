@@ -480,6 +480,19 @@ function save({
 
 /***/ }),
 
+/***/ "./src/frontend-script.js":
+/*!********************************!*\
+  !*** ./src/frontend-script.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const con = () => console.log('Col Log');
+
+con();
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -491,6 +504,9 @@ function save({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _notice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./notice */ "./src/notice/index.js");
 /* harmony import */ var _counterup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counterup */ "./src/counterup/index.js");
+/* harmony import */ var _frontend_script__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./frontend-script */ "./src/frontend-script.js");
+/* harmony import */ var _frontend_script__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_frontend_script__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
