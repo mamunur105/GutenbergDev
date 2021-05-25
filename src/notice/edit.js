@@ -40,8 +40,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-
-export default function Edit( {attributes, setAttributes} ) {
+const Edit = ( { attributes, setAttributes } ) => {
 	const {
 		content,
 		type,
@@ -107,3 +106,4 @@ export default function Edit( {attributes, setAttributes} ) {
 		</div>
 	);
 }
+export default Edit;

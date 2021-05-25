@@ -22,7 +22,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save( {attributes } ) {
+const save = ( {attributes } ) => {
 	const {
 		counterContent,
 		counterValue
@@ -40,3 +40,5 @@ export default function save( {attributes } ) {
 		</div>
 	);
 }
+
+export default save;

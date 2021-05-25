@@ -21,7 +21,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({ attributes }) {
+const save = ({ attributes }) => {
 	const { content, type, bgColor } = attributes;
 	return (
 		<div className="gutadns-alert-wrapper" {...useBlockProps.save()}>
@@ -32,3 +32,5 @@ export default function save({ attributes }) {
 		</div>
 	);
 }
+
+export default save;
