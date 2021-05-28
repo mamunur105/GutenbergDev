@@ -22,6 +22,7 @@ import {
 // import { Panel, PanelBody, PanelRow, SelectControl } = wp.components;
 import { __experimentalNumberControl as NumberControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
 
+// import counterUp from 'counterup2'
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,6 +32,7 @@ import { __experimentalNumberControl as NumberControl, Panel, PanelBody, PanelRo
  */
 import './editor.scss';
 
+import domReady from '@wordpress/dom-ready';
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -50,6 +52,20 @@ const Edit = ( {attributes, setAttributes} ) => {
 	const setCounterValue = ( counterValue ) => {
 		setAttributes({ counterValue });
 	}
+	const counterUpScript = ( event ) => {
+		// Start counting, do this on DOM ready or with Waypoints.
+		// counterUp( el, {
+		// 	duration: 1000,
+		// 	delay: 16,
+		// } )
+		console.log( 'Log Value' );
+		console.log( event.target );
+		domReady( function() {
+			//do something after DOM loads.
+			console.log( 'Dom is ready now. ( CU) ' );
+		} );
+	}
+	
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls key="setting">
@@ -68,7 +84,7 @@ const Edit = ( {attributes, setAttributes} ) => {
 				</Panel>
 			</InspectorControls>
 			<div className="counter" >
-				<span className="countvalue">{ counterValue }</span>
+				<span className="countvalue" onLoad={ counterUpScript } >{ counterValue }</span>
 				<RichText
 					key='counterContent'
 					tagName="p"

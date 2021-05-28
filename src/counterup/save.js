@@ -27,10 +27,19 @@ const save = ( {attributes } ) => {
 		counterContent,
 		counterValue
 	} = attributes;
+	const counterUpScript = ( event ) => {
+		// Start counting, do this on DOM ready or with Waypoints.
+		// counterUp( el, {
+		// 	duration: 1000,
+		// 	delay: 16,
+		// } )
+		console.log( 'Log Value' );
+		console.log( event.target );
+	}
 	return (
 		<div { ...useBlockProps.save() }>
 			<div className="counter" >
-				<span className="countvalue">{ counterValue }</span>
+				<span className="countvalue" onClick={ counterUpScript } >{ counterValue }</span>
 				<RichText.Content
 					key='counterContent'
 					tagName="p"

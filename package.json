@@ -16,6 +16,7 @@
 	"dependencies": {
 		"@wordpress/block-editor": "^6.0.0",
 		"@wordpress/blocks": "^9.0.0",
+		"@wordpress/dom-ready": "^3.1.0",
 		"@wordpress/i18n": "^4.0.0",
 		"counterup2": "^1.0.4"
 	},

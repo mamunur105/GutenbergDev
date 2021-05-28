@@ -1,3 +1,3 @@
 import './notice';
 import './counterup';
-import './frontend-script';
+// import './frontend-script';
