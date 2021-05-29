@@ -1,16 +1,14 @@
-import { useCountUp } from 'use-count-up';
+import counterUp from 'counterup2'
+const cUp = () => (
+	document.addEventListener("DOMContentLoaded", (event) => { 
+		const el = document.querySelector( '.countvalue' )
+		// Start counting, do this on DOM ready or with Waypoints.
+		counterUp( el, {
+			duration: 1000,
+			delay: 16,
+		} )
+	})
+)
 
-const Counter = ( { setValue } ) => {
-	const obj = {
-		isCounting: true,
-		end: setValue,
-		// fallback options
-		decimalPlaces: 2,
-		decimalSeparator: ',',
-		thousandsSeparator: '.'
-	}
-	const { value } = useCountUp( obj );
-	return value;
-};
 
-export default Counter;
+export default cUp;

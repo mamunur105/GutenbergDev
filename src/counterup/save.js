@@ -13,6 +13,9 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
+
+// import CountUp from 'react-countup';
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -31,7 +34,7 @@ const save = ( {attributes } ) => {
 	return (
 		<div { ...useBlockProps.save() }>
 			<div className="counter" >
-				<span className="countvalue" > {  counterValue } </span>
+				<span className="countvalue" > { counterValue }  </span>
 				<RichText.Content
 					key='counterContent'
 					tagName="p"

@@ -5,6 +5,8 @@
  */
 import { __ } from '@wordpress/i18n';
 
+// import cUp from './Counter'
+// import counterUp from 'counterup2'
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -24,6 +26,10 @@ import { __experimentalNumberControl as NumberControl, Panel, PanelBody, PanelRo
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+
+
+import CountUp from 'react-countup';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -54,8 +60,19 @@ const Edit = ({ attributes, setAttributes }) => {
 				</Panel>
 			</InspectorControls>
 			<div className="counter">
-				<span className="countvalue" > { counterValue }  </span>
+				<CountUp
+					className="countvalue"
+					start={0}
+					end={counterValue}
+					duration={3}
+					prefix=""
+					suffix=""
+					onEnd={() => console.log('Ended! 👏')}
+					onStart={() => console.log('Started! 💨')}
+				>
+				</CountUp>
 				<RichText key="counterContent" tagName="p" value={counterContent} onChange={setCounterContent} />
+
 			</div>
 		</div>
 	);

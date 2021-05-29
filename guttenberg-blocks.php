@@ -51,9 +51,13 @@ function create_gutenblock_addons_scripts() {
 	$version = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? time() : '1.0';
 	wp_enqueue_script( 'blocks-script', plugin_dir_url( __FILE__ ) . '/build/index.js', array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ), $version );
 	if ( is_admin() ) {
-		wp_enqueue_style( 'gut-style-editor', plugin_dir_url( __FILE__ ) . '/build/index.css', array(), $version );
+		wp_enqueue_style( 'gut-style-editor', plugin_dir_url( __FILE__ ) . 'build/index.css', array(), $version );
+	}else{
+		wp_enqueue_script( 'frontend-script', plugin_dir_url( __FILE__ ) . 'frontend/frontend.js', array( 'wp-element' ), $version );
 	}
+
 	wp_enqueue_style( 'front-style-editor', plugin_dir_url( __FILE__ ) . '/build/style-index.css', array(), $version );
+
 
 }
 
