@@ -71,7 +71,13 @@ const Edit = ({ attributes, setAttributes }) => {
 					onStart={() => console.log('Started! 💨')}
 				>
 				</CountUp>
-				<RichText key="counterContent" tagName="p" value={counterContent} onChange={setCounterContent} />
+				<RichText 
+					key="counterContent" 
+					tagName="p" 
+					value={counterContent} 
+					onChange={setCounterContent} 
+					placeholder={ __( 'Heading...' ) }
+				/>
 
 			</div>
 		</div>

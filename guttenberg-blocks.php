@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Gutenberg Addons
+ * Plugin Name:       Gutenberg Addons block
  * Description:       Example block written with ESNext standard and JSX support – build step required.
  * Requires at least: 5.7
  * Requires PHP:      7.0
@@ -49,8 +49,8 @@ function gutenblock_addons_plugin_block_categories( $categories, $post ) {
 
 function create_gutenblock_addons_scripts() {
 	$version = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? time() : '1.0';
-	wp_enqueue_script( 'blocks-script', plugin_dir_url( __FILE__ ) . '/build/index.js', array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ), $version );
 	if ( is_admin() ) {
+		wp_enqueue_script( 'blocks-script', plugin_dir_url( __FILE__ ) . '/build/index.js', array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ), $version );
 		wp_enqueue_style( 'gut-style-editor', plugin_dir_url( __FILE__ ) . 'build/index.css', array(), $version );
 	}else{
 		wp_enqueue_script( 'frontend-script', plugin_dir_url( __FILE__ ) . 'frontend/frontend.js', array( 'wp-element' ), $version );

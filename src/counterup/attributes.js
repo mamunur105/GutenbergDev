@@ -1,6 +1,7 @@
 const attributes = {
 	counterValue: {
-		type: 'number'
+		type: 'number',
+		default: 500
 	},
 	counterContent: {
 		type: 'string',

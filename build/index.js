@@ -2009,7 +2009,8 @@ module.exports = warning;
 __webpack_require__.r(__webpack_exports__);
 const attributes = {
   counterValue: {
-    type: 'number'
+    type: 'number',
+    default: 500
   },
   counterContent: {
     type: 'string',
@@ -2124,7 +2125,8 @@ const Edit = ({
     key: "counterContent",
     tagName: "p",
     value: counterContent,
-    onChange: setCounterContent
+    onChange: setCounterContent,
+    placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Heading...')
   })));
 };
 
