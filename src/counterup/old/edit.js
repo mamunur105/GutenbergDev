@@ -24,6 +24,7 @@ import { __experimentalNumberControl as NumberControl, Panel, PanelBody, PanelRo
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import { CountUp  } from 'use-count-up';
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -38,9 +39,22 @@ const Edit = ({ attributes, setAttributes }) => {
 		setAttributes({ counterContent });
 	};
 	const setCounterValue = (counterValue) => {
-		setAttributes( { counterValue: parseInt( counterValue ) });
+		setAttributes({ counterValue });
 	};
-
+	// const CounterComponent = ( counterValue ) => {
+	// 	// const { value } = useCountUp({
+	// 	// 	isCounting: true,
+	// 	// 	start: 0,
+	// 	// 	end: {counterValue},
+	// 	// 	duration: 2,
+	// 	// 	easing: 'easeOutCubic'
+	// 	// });
+	// 	// return value;
+	// 	// return ( <CountUp isCounting start={0} end={ counterValue } duration={10} easing="linear"  /> );
+	// };
+	// const CounterComponent = ( counterValue ) => (
+	// 	<CountUp isCounting start={0} end={counterValue} duration={10} easing="linear" />
+	// )
 	return (
 		<div {...useBlockProps()}>
 			<InspectorControls key="setting">
@@ -55,6 +69,7 @@ const Edit = ({ attributes, setAttributes }) => {
 			</InspectorControls>
 			<div className="counter">
 				<span className="countvalue" > { counterValue }  </span>
+				{/* <CountUp isCounting start={0} end={counterValue} duration={10} easing="linear" /> */}
 				<RichText key="counterContent" tagName="p" value={counterContent} onChange={setCounterContent} />
 			</div>
 		</div>

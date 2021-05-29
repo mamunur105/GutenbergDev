@@ -4,7 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-
+import { CountUp  } from 'use-count-up';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -31,7 +31,8 @@ const save = ( {attributes } ) => {
 	return (
 		<div { ...useBlockProps.save() }>
 			<div className="counter" >
-				<span className="countvalue" > {  counterValue } </span>
+				<span className="countvalue" > { counterValue } </span>
+				<CountUp isCounting start={0} end={counterValue} duration={10} easing="linear" />
 				<RichText.Content
 					key='counterContent'
 					tagName="p"

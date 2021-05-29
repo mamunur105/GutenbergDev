@@ -229,9 +229,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 __webpack_require__.r(__webpack_exports__);
 const attributes = {
   counterValue: {
-    type: 'string',
-    source: 'html',
-    selector: 'span.countvalue'
+    type: 'number'
   },
   counterContent: {
     type: 'string',
@@ -261,8 +259,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/counterup/editor.scss");
-/* harmony import */ var _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/dom-ready */ "@wordpress/dom-ready");
-/* harmony import */ var _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_5__);
 
 
 /**
@@ -280,7 +276,6 @@ __webpack_require__.r(__webpack_exports__);
 
  // import { Panel, PanelBody, PanelRow, SelectControl } = wp.components;
 
- // import counterUp from 'counterup2'
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -288,7 +283,6 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-
 
 
 /**
@@ -317,21 +311,7 @@ const Edit = ({
 
   const setCounterValue = counterValue => {
     setAttributes({
-      counterValue
-    });
-  };
-
-  const counterUpScript = event => {
-    // Start counting, do this on DOM ready or with Waypoints.
-    // counterUp( el, {
-    // 	duration: 1000,
-    // 	delay: 16,
-    // } )
-    console.log('Log Value');
-    console.log(event.target);
-    _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_5___default()(function () {
-      //do something after DOM loads.
-      console.log('Dom is ready now. ( CU) ');
+      counterValue: parseInt(counterValue)
     });
   };
 
@@ -347,9 +327,8 @@ const Edit = ({
   }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "counter"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "countvalue",
-    onLoad: counterUpScript
-  }, counterValue), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+    className: "countvalue"
+  }, " ", counterValue, "  "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
     key: "counterContent",
     tagName: "p",
     value: counterContent,
@@ -486,23 +465,11 @@ const save = ({
     counterContent,
     counterValue
   } = attributes;
-
-  const counterUpScript = event => {
-    // Start counting, do this on DOM ready or with Waypoints.
-    // counterUp( el, {
-    // 	duration: 1000,
-    // 	delay: 16,
-    // } )
-    console.log('Log Value');
-    console.log(event.target);
-  };
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "counter"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "countvalue",
-    onClick: counterUpScript
-  }, counterValue), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+    className: "countvalue"
+  }, " ", counterValue, " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
     key: "counterContent",
     tagName: "p",
     value: counterContent
@@ -877,17 +844,6 @@ const save = ({
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["components"]; }());
-
-/***/ }),
-
-/***/ "@wordpress/dom-ready":
-/*!**********************************!*\
-  !*** external ["wp","domReady"] ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["domReady"]; }());
 
 /***/ }),
 

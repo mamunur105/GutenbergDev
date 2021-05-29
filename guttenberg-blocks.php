@@ -54,6 +54,7 @@ function create_gutenblock_addons_scripts() {
 		wp_enqueue_style( 'gut-style-editor', plugin_dir_url( __FILE__ ) . '/build/index.css', array(), $version );
 	}
 	wp_enqueue_style( 'front-style-editor', plugin_dir_url( __FILE__ ) . '/build/style-index.css', array(), $version );
+
 }
 
 
