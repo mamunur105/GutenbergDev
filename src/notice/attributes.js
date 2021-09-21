@@ -6,9 +6,6 @@ const attributes = {
 	},
 	type: {
 		type: 'string',
-		source: 'attribute',
-		selector: 'div.gutadns-alert',
-		attribute: 'class',
 		default: 'success'
 	},
 	bgColor : {

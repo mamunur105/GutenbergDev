@@ -1,24 +1,24 @@
 <?php
 /**
- * Plugin Name:       Gutenberg Addons block
- * Description:       Example block written with ESNext standard and JSX support – build step required.
- * Requires at least: 5.7
+ * The plugin bootstrap file
+ *
+ * @link              https://wordpress.org/plugins/unique-trendy-blocks-for-gutenberg
+ * @since             1.0.3
+ * @package           UABFG_Block
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Unique & Trendy Blocks For Gutenberg
+ * Plugin URI:        https://wordpress.org/plugins/unique-trendy-blocks-for-gutenberg
+ * Description:       This is for woocommerce Category,Related product, And also For Promotional slider.
+ * Version:           1.0.0
+ * Requires at least: 5.0
  * Requires PHP:      7.0
- * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
+ * Author:            Mamunur rashid
+ * Author URI:        https://profiles.wordpress.org/mamunur105
+ * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       starter-block
- *
- * @package           gutenblock-addons
- */
-
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
+ * Text Domain:       uabfg
+ * Domain Path:       /languages
  */
 
 /**
@@ -28,62 +28,19 @@
  * @param object $post .
  * @return array.
  */
-function gutenblock_addons_plugin_block_categories( $categories, $post ) {
-	return array_merge(
-		array(
-			array(
-				'slug'  => 'gutenblock-addons',
-				'title' => __( 'Gutenberg Addons', 'gutenblock-addons' ),
-				'icon'  => 'wordpress',
-			),
-		),
-		$categories
-	);
-}
 
-
+$plugin_data = get_file_data( __FILE__, array( 'version' => 'Version' ), false );
+define( 'UTBFG_VERSION', $plugin_data['version'] );
+define( 'UTBFG_PLUGIN_PREFIX', 'UTBFG' );
+define( 'UTBFG_PLUGIN_NAME', 'unique-addons-blocks-for-gutenberg' );
+define( 'UTBFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'UTBFG_PLUGIN_FILE', __FILE__ );
+define( 'UTBFG_URL', plugins_url( '', UTBFG_PLUGIN_FILE ) );
+define( 'UTBFG_ASSETS_BUILD', UTBFG_URL . '/build' );
+define( 'UTBFG_ASSETS_FRONTEND', UTBFG_URL . '/frontend' );
 
 /**
- * 
+ * Main File.
  */
-
-function create_gutenblock_addons_scripts() {
-	$version = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? time() : '1.0';
-	if ( is_admin() ) {
-		wp_enqueue_script( 'blocks-script', plugin_dir_url( __FILE__ ) . '/build/index.js', array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ), $version );
-		wp_enqueue_style( 'gut-style-editor', plugin_dir_url( __FILE__ ) . 'build/index.css', array(), $version );
-	}else{
-		wp_enqueue_script( 'frontend-script', plugin_dir_url( __FILE__ ) . 'frontend/frontend.js', array( 'wp-element' ), $version );
-	}
-
-	wp_enqueue_style( 'front-style-editor', plugin_dir_url( __FILE__ ) . '/build/style-index.css', array(), $version );
-
-
-}
-
-
-
-/**
- * Block Registration.
- *
- * @return void
- */
-function create_gutenblock_addons_init() {
-	$block_list = array(
-		'gutenblock-addons/counterup' => array(),
-		'gutenblock-addons/notice'    => array(),
-	);
-	foreach ( $block_list as $key => $array ) {
-		register_block_type( $key, $array );
-	}
-}
-
-add_action(
-	'plugins_loaded',
-	function() {
-		add_filter( 'block_categories', 'gutenblock_addons_plugin_block_categories', 10, 2 );
-		add_action( 'init', 'create_gutenblock_addons_init' );
-		add_action( 'enqueue_block_assets', 'create_gutenblock_addons_scripts' );
-	}
-);
+require_once UTBFG_PLUGIN_DIR . '/inc/init.php';
 

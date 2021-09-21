@@ -2308,9 +2308,6 @@ const attributes = {
   },
   type: {
     type: 'string',
-    source: 'attribute',
-    selector: 'div.gutadns-alert',
-    attribute: 'class',
     default: 'success'
   },
   bgColor: {
@@ -2318,6 +2315,91 @@ const attributes = {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
+
+/***/ }),
+
+/***/ "./src/notice/blockControls.js":
+/*!*************************************!*\
+  !*** ./src/notice/blockControls.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+
+
+const blockControls = (attributes, setAttributes) => {
+  const {
+    type,
+    bgColor
+  } = attributes;
+
+  const onChangeType = type => {
+    setAttributes({
+      type
+    });
+  };
+
+  const onbgColorChange = bgColor => {
+    setAttributes({
+      bgColor
+    });
+  };
+
+  const [values, setValues] = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    top: '50px',
+    left: '10%',
+    right: '10%',
+    bottom: '50px'
+  });
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], {
+    key: "setting"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Panel"], {
+    header: ""
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: "Notice Type",
+    initialOpen: true
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["__experimentalBoxControl"], {
+    values: values,
+    onChange: nextValues => setValues(nextValues)
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: "TYPE",
+    value: type,
+    options: [{
+      label: 'Danger',
+      value: 'danger'
+    }, {
+      label: 'Success',
+      value: 'success'
+    }, {
+      label: 'Info',
+      value: 'info'
+    }, {
+      label: 'Warning',
+      value: 'warning'
+    }],
+    onChange: onChangeType
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelBody"], {
+    title: "Customize BG Color",
+    initialOpen: true
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["PanelRow"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["ColorPalette"], {
+    value: bgColor,
+    onChange: onbgColorChange
+  })))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (blockControls);
 
 /***/ }),
 
@@ -2338,7 +2420,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/notice/editor.scss");
+/* harmony import */ var _blockControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blockControls */ "./src/notice/blockControls.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/notice/editor.scss");
 
 
 
@@ -2356,12 +2439,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-const {
-  Panel,
-  PanelBody,
-  PanelRow,
-  SelectControl
-} = wp.components;
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -2400,49 +2478,9 @@ const Edit = ({
     });
   };
 
-  const onChangeType = type => {
-    setAttributes({
-      type
-    });
-  };
-
-  const onbgColorChange = bgColor => {
-    setAttributes({
-      bgColor
-    });
-  };
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: "gutadns-alert-wrapper"
-  }, Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], {
-    key: "setting"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Panel, {
-    header: "Notice Settings"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelBody, {
-    initialOpen: true
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", null, " Notice Type "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelRow, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SelectControl, {
-    label: "",
-    value: type,
-    options: [{
-      label: 'Danger',
-      value: 'danger'
-    }, {
-      label: 'Success',
-      value: 'success'
-    }, {
-      label: 'Info',
-      value: 'info'
-    }, {
-      label: 'Warning',
-      value: 'warning'
-    }],
-    onChange: onChangeType
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelBody, {
-    initialOpen: true
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", null, " Customize BG Color "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(PanelRow, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["ColorPalette"], {
-    value: bgColor,
-    onChange: onbgColorChange
-  }))))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+  }, Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])()), Object(_blockControls__WEBPACK_IMPORTED_MODULE_4__["default"])(attributes, setAttributes), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: `gutadns-alert ${type}`,
     style: {
       backgroundColor: bgColor
@@ -2522,7 +2560,6 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('gut
   title: "Notice",
   category: "gutenblock-addons",
   icon: "smiley",
-  description: "Example block written with ESNext standard and JSX support – build step required.",
   attributes: _attributes__WEBPACK_IMPORTED_MODULE_4__["default"],
 
   /**

@@ -29,7 +29,6 @@ registerBlockType( 'gutenblock-addons/notice', {
 	title: "Notice",
 	category: "gutenblock-addons",
 	icon: "smiley",
-	description: "Example block written with ESNext standard and JSX support – build step required.",
 	attributes: attributes,
 	/**
 	 * @see ./edit.js
