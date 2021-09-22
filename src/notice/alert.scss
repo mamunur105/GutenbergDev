@@ -1,6 +1,6 @@
 .gutadns-{
 	&alert {
-		padding: 20px;
+		padding: 20px 30px;
 		background-color: #f44336;
 		color: white;
 		&.success{
@@ -12,7 +12,6 @@
 		&.warning{
 			background-color: #ff9800;
 		}
-		%placeholder_alert_P,
 		p:last-child{
 			margin: 0 ;
 		}

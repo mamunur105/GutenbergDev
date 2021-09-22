@@ -47,7 +47,6 @@ final class UTBFG {
 		add_filter( 'block_categories_all', array( $this, 'gutenblock_addons_plugin_block_categories' ), 10, 2 );
 		add_action( 'init', array( $this, 'create_gutenblock_addons_init' ) );
 		add_action( 'enqueue_block_assets', array( $this, 'create_gutenblock_addons_scripts' ) );
-		// add_action( 'after_setup_theme', array( $this, 'setup_theme_supported_features' ) );
 	}
 	/**
 	 * Undocumented function

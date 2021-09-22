@@ -19,13 +19,6 @@ const blockControls = ( attributes, setAttributes ) => {
         setAttributes({ bgColor });
     }
 
-    const [ values, setValues ] = useState( {
-        top: '50px',
-        left: '10%',
-        right: '10%',
-        bottom: '50px',
-    } );
-
     return (
         <InspectorControls key="setting">
             <Panel header="" >
@@ -33,12 +26,6 @@ const blockControls = ( attributes, setAttributes ) => {
                     title="Notice Type"
                     initialOpen={ true }
                     >
-                    <PanelRow>
-                        <BoxControl
-                            values={ values }
-                            onChange={ ( nextValues ) => setValues( nextValues ) }
-                        />
-                    </PanelRow>
                     <PanelRow>
                         <SelectControl
                             label="TYPE"

@@ -5,12 +5,11 @@
  */
 
 
-@import './alert';
 .editor-styles-wrapper{
 	.gutadns-{
 		&alert {
 			p{
-				@extend %placeholder_alert_P;
+				margin: 0;
 			}
 		}
 	}

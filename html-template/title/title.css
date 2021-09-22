@@ -1,0 +1,77 @@
+.utbfg-section-title {
+    font-family: 'Karla', sans-serif;
+}
+.utbfg-section-title span {
+    font-family: "Poppins", sans-serif;
+}
+.utbfg-section-title {
+    text-align: center;
+    margin-bottom: 38px;
+}
+.utbfg-section-title span {
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #fc5a1b;
+}
+
+.utbfg-section-title h2 {
+	margin-top: 0;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.utbfg-section-title p {
+    max-width: 750px;
+    margin: auto;
+}
+
+
+.title.center {
+    text-align: center;
+}
+
+.title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+.title .upper {
+    font-size: 14px;
+    font-family: 'Raleway';
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+.title h2 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 58px;
+    margin-bottom: 10px;
+}
+
+.section-content{
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.red-dot:before {
+    content: ".";
+    color: #EF2D56;
+}
+.title hr {
+    width: 45px;
+    margin: 20px 0;
+    border-top: 1px solid #EF2D56;
+}
+.title.center hr {
+    margin: 20px auto;
+}
+
+.lead-text {
+    font-size: 21px;
+    margin: 0;
+}
