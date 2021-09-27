@@ -1,4 +1,4 @@
-// import './common.scss';
 import './notice';
-// import './counterup';
+import './counterup';
+import './counterupgroup';
 

@@ -1,6 +1,4 @@
 import { Panel, PanelBody, PanelRow , SelectControl } from '@wordpress/components';
-import { __experimentalBoxControl as BoxControl } from '@wordpress/components';
-import { useState } from '@wordpress/element';
 import {
     InspectorControls,
 	ColorPalette

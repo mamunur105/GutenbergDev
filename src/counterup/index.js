@@ -31,6 +31,7 @@ registerBlockType( 'gutenblock-addons/counterup', {
 	icon: "smiley",
 	description: "Example block written with ESNext standard and JSX support – build step required.",
 	attributes: attributes,
+	parent: [ 'gutenblock-addons/counterupgroup' ],
 	/**
 	 * @see ./edit.js
 	 */

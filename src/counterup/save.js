@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 
 // import CountUp from 'react-countup';
@@ -27,7 +27,6 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  */
 const save = ( {attributes } ) => {
 	const {
-		counterContent,
 		counterValue
 	} = attributes;
 
@@ -35,11 +34,6 @@ const save = ( {attributes } ) => {
 		<div { ...useBlockProps.save() }>
 			<div className="counter" >
 				<span className="countvalue" > { counterValue }  </span>
-				<RichText.Content
-					key='counterContent'
-					tagName="p"
-					value={ counterContent }
-				/>
 			</div>
 		</div>
 	);

@@ -14,7 +14,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 
-import { useBlockProps, InspectorControls, ColorPalette, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 
 // import { Panel, PanelBody, PanelRow, SelectControl } = wp.components;
 import { __experimentalNumberControl as NumberControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
@@ -41,10 +41,8 @@ import CountUp from 'react-countup';
  * @return {WPElement} Element to render.
  */
 const Edit = ({ attributes, setAttributes }) => {
-	const { counterContent, counterValue } = attributes;
-	const setCounterContent = (counterContent) => {
-		setAttributes({ counterContent });
-	};
+	const { counterValue } = attributes;
+
 	const setCounterValue = (counterValue) => {
 		setAttributes( { counterValue: parseInt( counterValue ) });
 	};
@@ -73,14 +71,6 @@ const Edit = ({ attributes, setAttributes }) => {
 					onStart={() => console.log('Started! 💨')}
 				>
 				</CountUp>
-				<RichText 
-					key="counterContent" 
-					tagName="p" 
-					value={counterContent} 
-					onChange={setCounterContent} 
-					placeholder={ __( 'Heading...' ) }
-				/>
-
 			</div>
 		</div>
 	);

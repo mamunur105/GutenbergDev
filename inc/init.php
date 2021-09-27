@@ -44,9 +44,18 @@ final class UTBFG {
 	 * @return void
 	 */
 	public function hooking() {
+		add_action( 'after_setup_theme', array( $this, 'add_theme_suport' ) );
 		add_filter( 'block_categories_all', array( $this, 'gutenblock_addons_plugin_block_categories' ), 10, 2 );
 		add_action( 'init', array( $this, 'create_gutenblock_addons_init' ) );
 		add_action( 'enqueue_block_assets', array( $this, 'create_gutenblock_addons_scripts' ) );
+	}
+	/**
+	 * Theme Suport 
+	 *
+	 * @return void
+	 */
+	public function add_theme_suport(){
+		add_theme_support( 'custom-spacing' );
 	}
 	/**
 	 * Undocumented function

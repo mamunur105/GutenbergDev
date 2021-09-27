@@ -8,13 +8,20 @@ $devices: 'xl', 'lg', 'md', 'sm', 'xs';
     outline: 0;
 	box-sizing: border-box;
 }
-
 %columns-styles {
 	position: relative;
 	width: 100%;
 	padding-right: 15px;
 	padding-left: 15px;
 }
+.entry-content{
+	.gutadns-alert h2,
+	.wp-block{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
 
 .text-center{
 	text-align: center;

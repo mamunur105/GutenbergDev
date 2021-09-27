@@ -18,6 +18,12 @@
   padding-left: 15px;
 }
 
+.entry-content .gutadns-alert h2,
+.entry-content .wp-block {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .text-center {
   text-align: center;
 }
@@ -288,8 +294,21 @@
 .gutadns-alert.warning {
   background-color: #ff9800;
 }
+.gutadns-alert h2,
 .gutadns-alert p:last-child {
   margin: 0;
 }
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
 
 /*# sourceMappingURL=style-index.css.map*/

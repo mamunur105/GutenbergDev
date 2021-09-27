@@ -10,5 +10,4 @@ const cUp = () => (
 	})
 )
 
-
 export default cUp;
