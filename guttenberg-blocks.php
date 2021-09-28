@@ -37,7 +37,6 @@ define( 'UTBFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'UTBFG_PLUGIN_FILE', __FILE__ );
 define( 'UTBFG_URL', plugins_url( '', UTBFG_PLUGIN_FILE ) );
 define( 'UTBFG_ASSETS_BUILD', UTBFG_URL . '/build' );
-define( 'UTBFG_ASSETS_FRONTEND', UTBFG_URL . '/frontend' );
 
 /**
  * Main File.
