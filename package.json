@@ -18,6 +18,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^16.0.0",
-		"filemanager-webpack-plugin": "^6.1.7"
+		"filemanager-webpack-plugin": "^6.1.7",
+		"webpack-build-notifier": "^2.3.0"
 	}
 }
