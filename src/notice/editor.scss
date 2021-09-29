@@ -4,6 +4,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-starter-block {
-	border: 1px dotted #f00;
+
+.editor-styles-wrapper{
+	.gutadns-{
+		&alert {
+			p{
+				margin: 0;
+			}
+		}
+	}
 }
+

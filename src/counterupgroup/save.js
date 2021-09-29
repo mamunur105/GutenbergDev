@@ -11,7 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+
+
+// import CountUp from 'react-countup';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,19 +25,12 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-const save = ({ attributes }) => {
-	const { content, type, bgColor } = attributes;
+const save = ( {attributes } ) => {
 
 	return (
-		<>
-		<div className="gutadns-alert-wrapper" >
-			<div className={`gutadns-alert ${type}`} style={{ backgroundColor: bgColor }}>
-				<div {...useBlockProps.save()} >
-					<RichText.Content key="descriptioneditable" className="alert-description" tagName="p" value={content} />
-				</div>
-			</div>
+		<div { ...useBlockProps.save() }>
+			<InnerBlocks.Content/>
 		</div>
-		</>
 	);
 }
 

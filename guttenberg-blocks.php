@@ -1,44 +1,44 @@
 <?php
 /**
- * Plugin Name:       Starter Block
- * Description:       Example block written with ESNext standard and JSX support – build step required.
- * Requires at least: 5.7
- * Requires PHP:      7.0
- * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       starter-block
+ * The plugin bootstrap file
  *
- * @package           create-block
+ * @link              https://wordpress.org/plugins/unique-trendy-blocks-for-gutenberg
+ * @since             1.0.0
+ * @package           UABFG_Block
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Unique & Trendy Blocks For Gutenberg
+ * Plugin URI:        https://wordpress.org/plugins/unique-trendy-blocks-for-gutenberg
+ * Description:       This is for woocommerce Category,Related product, And also For Promotional slider.
+ * Version:           1.0.0
+ * Requires at least: 5.0
+ * Requires PHP:      7.0
+ * Author:            Mamunur rashid
+ * Author URI:        https://profiles.wordpress.org/mamunur105
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       utbfg
+ * Domain Path:       /languages
  */
 
 /**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
+ * Add new category.
  *
- * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
+ * @param array  $categories list.
+ * @param object $post .
+ * @return array.
  */
 
-function my_plugin_block_categories( $categories, $post ) {
-	// if ( $post->post_type !== 'post' ) {
-	// 	return $categories;
-	// }
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug'  => 'my-category',
-				'title' => __( 'My category', 'my-plugin' ),
-				'icon'  => 'wordpress',
-			),
-		)
-	);
-}
-add_filter( 'block_categories', 'my_plugin_block_categories', 10, 2 );
-function create_block_gutenpride_block_init() {
-	register_block_type_from_metadata( __DIR__ . '/src/counterup' );
-	register_block_type_from_metadata( __DIR__ . '/src/notice' );
-}
-add_action( 'init', 'create_block_gutenpride_block_init' );
+define( 'UTBFG_VERSION', '1.0.0' );
+define( 'UTBFG_PLUGIN_PREFIX', 'UTBFG' );
+define( 'UTBFG_PLUGIN_NAME', 'unique-addons-blocks-for-gutenberg' );
+define( 'UTBFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'UTBFG_PLUGIN_FILE', __FILE__ );
+define( 'UTBFG_URL', plugins_url( '', UTBFG_PLUGIN_FILE ) );
+define( 'UTBFG_ASSETS_BUILD', UTBFG_URL . '/build' );
+
+/**
+ * Main File.
+ */
+require_once UTBFG_PLUGIN_DIR . '/inc/init.php';
+

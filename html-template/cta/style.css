@@ -1,0 +1,50 @@
+.cta-bg {
+    background: #191919;
+    padding: 70px 60px;
+    border-radius: 8px;
+    margin: 40px 0 0;
+    position: relative;
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.join-txt span {
+    font-size: 18px;
+    font-family: br;
+    color: #e50914;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+.join-txt h3 {
+    font-size: 38px;
+    font-family: bb;
+    color: white;
+    text-transform: uppercase;
+    line-height: 52px;
+    padding: 5px 0 18px;
+}
+.join-txt p {
+    font-family: br;
+    font-size: 19px;
+    color: #787878;
+    padding-bottom: 48px;
+}
+.main-btn {
+    padding: 15px 20px;
+    color: white;
+    font-size: 18px;
+    font-family: bb;
+    background: #e50914;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all linear .3s;
+    -o-transition: all linear .3s;
+    transition: all linear .3s;
+    border-radius: 50px;
+}
+
+.join-img img {
+    position: absolute;
+    bottom: -70px;
+    width: 100%;
+}

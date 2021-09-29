@@ -1,0 +1,58 @@
+$columns: 12;
+$devices: 'xl', 'lg', 'md', 'sm', 'xs';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+	box-sizing: border-box;
+}
+%columns-styles {
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.entry-content{
+	.gutadns-alert h2,
+	.wp-block{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+
+.text-center{
+	text-align: center;
+}
+.utbfg-{
+	&container {
+		width: 1170px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	&row {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	&col-{
+		@each $size in $devices {
+			&#{$size}-{
+				@for $i from 1 through $columns {
+					&#{$i} {
+						@extend %columns-styles;
+						-ms-flex: 0 0 calc( (100% * #{$i}) / #{$columns} );
+						flex: 0 0 calc( (100% * #{$i}) / #{$columns} );
+						max-width: calc( (100% * #{$i}) / #{$columns} );
+					}
+				}
+			}
+		}
+	}
+}
+

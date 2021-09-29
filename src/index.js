@@ -1,2 +1,5 @@
-import './notice/index'
-import './counterup/index'
+import './style.scss'
+import './notice';
+import './counterup';
+import './counterupgroup';
+

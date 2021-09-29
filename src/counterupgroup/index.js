@@ -25,23 +25,16 @@ import attributes from './attributes';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-// const ALLOW_BLOCKS = ['core/button'];
-
-registerBlockType( 'gutenblock-addons/notice', {
-	title: "Notice",
+registerBlockType( 'gutenblock-addons/counterupgroup', {
+	title: "Counterup Blocks",
 	category: "gutenblock-addons",
 	icon: "smiley",
+	description: "Example block written with ESNext standard and JSX support – build step required.",
 	attributes: attributes,
-	supports: {
-		spacing: {
-			margin: true,  // Enable margin UI control.
-			padding: true, // Enable padding UI control.
-		}
-	},
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit ,
+	edit: Edit,
 
 	/**
 	 * @see ./save.js

@@ -5,19 +5,16 @@
  */
 import { __ } from '@wordpress/i18n';
 
+// import cUp from './Counter'
+// import counterUp from 'counterup2'
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import {
-	useBlockProps,
-	RichText
-} from '@wordpress/block-editor';
 
-
-import blockControls from './blockControls';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -25,11 +22,11 @@ import blockControls from './blockControls';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
+
+
 import './editor.scss';
 
-/**
- * Import Attribute
- */
+const ALLOWED_BLOCKS = [ 'core/heading', 'core/paragraph'];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -39,34 +36,13 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-const Edit = ( { attributes, setAttributes } ) => {
-	const {
-		content,
-		type,
-		bgColor
-	} = attributes;
-	const onChangeContent = content => {
-		setAttributes({ content });
-	}
+const Edit = ({ attributes, setAttributes }) => {
 
 	return (
-		<div className="gutadns-alert-wrapper" >
-			<div className={`gutadns-alert ${type}`}
-					style={ { backgroundColor: bgColor} }
-				>
-				<div { ...useBlockProps() } >
-					{ blockControls( attributes , setAttributes ) }
-					<RichText
-						key='descriptioneditable'
-						className='alert-description'
-						tagName="p"
-						placeholder = "Alert Description"
-						value={content}
-						onChange={ onChangeContent }
-					/>
-				</div>
-			</div>
-		</div >
+		<div {...useBlockProps()}>
+			<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+		</div>
 	);
-}
+};
+
 export default Edit;
