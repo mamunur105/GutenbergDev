@@ -26,7 +26,3 @@ node_modules/
 # dotenv environment variables file
 .env
 # Plugins file
-
-build
-dist
-guttenberg-blocks.zip

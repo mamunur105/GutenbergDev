@@ -2,27 +2,8 @@ const path = require('path');
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
+const FileManagerPluginConfig = require('./FileManagerPluginConfig');
 const production = defaultConfig.mode === 'production';
-const FileManagerPluginConfig = () => (
-	! production ? {} :
-	{
-		events: {
-			onEnd: {
-				copy: [
-					{ source: './readme.txt', destination: './dist/readme.txt' },
-					{ source: './*.php', destination: './dist/' },
-					{ source: './html-template', destination: './dist/html-template' },
-					{ source: './inc', destination: './dist/inc' },
-					{ source: './build', destination: './dist/build' }
-				],
-				archive: [
-					{ source: './dist', destination: './guttenberg-blocks.zip' }
-				]
-			}
-		}
-	}
-);
-
 module.exports = {
 	...defaultConfig,
 	entry: {
@@ -35,6 +16,6 @@ module.exports = {
 	plugins: [
 		...defaultConfig.plugins,
 		// ... Other Plugins
-		new FileManagerPlugin( FileManagerPluginConfig() )
+		new FileManagerPlugin( FileManagerPluginConfig( production ) )
 	]
 };
