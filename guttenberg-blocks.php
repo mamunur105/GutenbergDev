@@ -3,7 +3,7 @@
  * The plugin bootstrap file
  *
  * @link              https://wordpress.org/plugins/unique-trendy-blocks-for-gutenberg
- * @since             1.0.3
+ * @since             1.0.0
  * @package           UABFG_Block
  *
  * @wordpress-plugin
@@ -29,8 +29,7 @@
  * @return array.
  */
 
-$plugin_data = get_file_data( __FILE__, array( 'version' => 'Version' ), false );
-define( 'UTBFG_VERSION', $plugin_data['version'] );
+define( 'UTBFG_VERSION', '1.0.0' );
 define( 'UTBFG_PLUGIN_PREFIX', 'UTBFG' );
 define( 'UTBFG_PLUGIN_NAME', 'unique-addons-blocks-for-gutenberg' );
 define( 'UTBFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
