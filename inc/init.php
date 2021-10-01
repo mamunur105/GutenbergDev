@@ -122,6 +122,24 @@ final class UTBFG {
 		wp_enqueue_style( 'front-style-editor' );
 	}
 
+	
+	/**
+	 * Cloning is forbidden.
+	 * @since 1.0.0
+	 */
+	public function __clone() {
+		_doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'grgblock' ), '1.0.0' );
+	}
+
+	/**
+	 * Universalizing instances of this class is forbidden.
+	 * @since 1.0.0
+	 */
+	public function __wakeup() {
+		_doing_it_wrong( __FUNCTION__, __( 'Universalizing instances of this class is forbidden.', 'grgblock' ), '1.0.0' );
+	}
+
+
 	/**
 	 * Block Registration.
 	 *
