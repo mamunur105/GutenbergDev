@@ -9,10 +9,6 @@ const production = defaultConfig.mode === 'production';
 
 module.exports = {
 	...defaultConfig,
-	entry: {
-		'blocks/index': path.resolve(__dirname, 'src', 'index.js'),
-		'frontend/index': path.resolve(__dirname, 'src', 'frontend.js')
-	},
 	output: {
 		path: path.resolve(__dirname, 'build')
 	},

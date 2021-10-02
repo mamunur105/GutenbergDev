@@ -82,8 +82,8 @@ final class UTBFG {
 	 * @return void
 	 */
 	public function create_gutenblock_addons_scripts() {
-		$asset_file = include( UTBFG_PLUGIN_DIR . '/build/blocks/index.asset.php');
-		$asset_file_frontend = include( UTBFG_PLUGIN_DIR . '/build/frontend/index.asset.php');
+		$asset_file = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
+		$asset_file_frontend = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
 
 		wp_register_script(
 			'blocks-script',
@@ -96,7 +96,7 @@ final class UTBFG {
 			'guten-style-editor',
 			UTBFG_ASSETS_BUILD . '/blocks/index.css',
 			array(),
-			$asset_file_frontend['version']
+			$asset_file['version']
 		);
 
 		wp_register_script(

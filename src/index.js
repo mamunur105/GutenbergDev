@@ -1,5 +1,3 @@
-import './style.scss'
+import './common';
 import './notice';
-import './counterup';
-import './counterupgroup';
 

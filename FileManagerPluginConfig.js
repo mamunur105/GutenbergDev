@@ -1,6 +1,12 @@
 const FileManagerPluginConfig = (production) => {
 	const config = {
 		events: {
+			onStart: {
+				delete: [
+					'./dist',
+					'./build'
+				]
+			},
 			onEnd: {
 				copy: [
 					{
@@ -8,8 +14,12 @@ const FileManagerPluginConfig = (production) => {
 						destination: './dist/guttenberg-blocks/readme.txt'
 					},
 					{
-						source: './*.php',
-						destination: './dist/guttenberg-blocks/'
+						source: './index.php',
+						destination: './dist/guttenberg-blocks/index.php'
+					},
+					{
+						source: './guttenberg-blocks.php',
+						destination: './dist/guttenberg-blocks/guttenberg-blocks.php'
 					},
 					{
 						source: './html-template',
