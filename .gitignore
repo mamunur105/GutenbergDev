@@ -27,6 +27,6 @@ node_modules/
 .env
 # Plugins file
 .editorconfig
-
+build
 dist
 guttenberg-blocks.zip

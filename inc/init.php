@@ -83,41 +83,41 @@ final class UTBFG {
 	 */
 	public function create_gutenblock_addons_scripts() {
 		$asset_file = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
-		$asset_file_frontend = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
+		// $asset_file_frontend = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
 
 		wp_register_script(
 			'blocks-script',
-			UTBFG_ASSETS_BUILD . '/blocks/index.js',
+			UTBFG_ASSETS_BUILD . '/index.js',
 			$asset_file['dependencies'],
 			$asset_file['version'],
 			true
 		);
 		wp_register_style(
 			'guten-style-editor',
-			UTBFG_ASSETS_BUILD . '/blocks/index.css',
+			UTBFG_ASSETS_BUILD . '/index.css',
 			array(),
 			$asset_file['version']
 		);
 
-		wp_register_script(
-			'frontend-script',
-			UTBFG_ASSETS_BUILD . '/frontend/index.js',
-			$asset_file_frontend['dependencies'],
-			$asset_file_frontend['version'],
-			true
-		);
+		// wp_register_script(
+		// 	'frontend-script',
+		// 	UTBFG_ASSETS_BUILD . '/frontend/index.js',
+		// 	$asset_file_frontend['dependencies'],
+		// 	$asset_file_frontend['version'],
+		// 	true
+		// );
 		wp_register_style(
 			'front-style-editor',
-			UTBFG_ASSETS_BUILD . '/style-blocks/index.css',
+			UTBFG_ASSETS_BUILD . '/style-index.css',
 			array(),
-			$asset_file_frontend['version']
+			$asset_file['version']
 		);
 
 		if ( is_admin() ) {
 			wp_enqueue_script( 'blocks-script' );
 			wp_enqueue_style( 'guten-style-editor' );
 		} else {
-			wp_enqueue_script( 'frontend-script' );
+			// wp_enqueue_script( 'frontend-script' );
 		}
 		wp_enqueue_style( 'front-style-editor' );
 	}
@@ -157,5 +157,16 @@ final class UTBFG {
 
 }
 
-UTBFG::init();
+
+/**
+ * @return UTBFG
+ */
+function UTBFG() {
+	return UTBFG::init();
+}
+//fire off the plugin
+UTBFG();
+
+
+// UTBFG::init();
 
