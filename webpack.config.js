@@ -1,5 +1,4 @@
 const path = require('path');
-
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const FileManagerPluginConfig = require('./FileManagerPluginConfig');
@@ -9,6 +8,10 @@ const production = defaultConfig.mode === 'production';
 
 module.exports = {
 	...defaultConfig,
+	entry: {
+		...defaultConfig.entry,
+		frontend: './src/frontend.js',
+	},
 	output: {
 		path: path.resolve(__dirname, 'build')
 	},

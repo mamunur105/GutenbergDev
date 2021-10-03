@@ -1,12 +1,18 @@
 const FileManagerPluginConfig = (production) => {
-	const config = {
+	const Devconfig = {
 		events: {
 			onStart: {
 				delete: [
 					'./dist',
 					'./build'
 				]
-			},
+			}
+		}
+	}
+	// console.log( Devconfig.events );
+	const config = {
+		events: {
+			...Devconfig.events,
 			onEnd: {
 				copy: [
 					{
@@ -43,7 +49,8 @@ const FileManagerPluginConfig = (production) => {
 			}
 		}
 	};
-	return production ? config : {};
+
+	return production ? config : Devconfig;
 };
 
 module.exports = FileManagerPluginConfig;
