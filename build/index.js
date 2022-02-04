@@ -406,7 +406,7 @@ const Edit = _ref => {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "gutadns-alert-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])(), Object(_blockControls__WEBPACK_IMPORTED_MODULE_3__["default"])(attributes, setAttributes), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_blockControls__WEBPACK_IMPORTED_MODULE_3__["default"])(attributes, setAttributes), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: `gutadns-alert ${type}`,
     style: {
       backgroundColor: bgColor
@@ -418,7 +418,7 @@ const Edit = _ref => {
     placeholder: "Alert Description",
     value: content,
     onChange: onChangeContent
-  }))));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
@@ -490,14 +490,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('gut
   category: "gutenblock-addons",
   icon: "smiley",
   attributes: _attributes__WEBPACK_IMPORTED_MODULE_5__["default"],
-  supports: {
-    spacing: {
-      margin: true,
-      // Enable margin UI control.
-      padding: true // Enable padding UI control.
-
-    }
-  },
+  supports: {},
 
   /**
    * @see ./edit.js
@@ -569,12 +562,12 @@ const save = _ref => {
     style: {
       backgroundColor: bgColor
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
     key: "descriptioneditable",
     className: "alert-description",
     tagName: "p",
     value: content
-  })))));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (save);

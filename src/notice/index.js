@@ -34,12 +34,7 @@ registerBlockType( 'gutenblock-addons/notice', {
 	category: "gutenblock-addons",
 	icon: "smiley",
 	attributes: attributes,
-	supports: {
-		spacing: {
-			margin: true,  // Enable margin UI control.
-			padding: true, // Enable padding UI control.
-		}
-	},
+	supports: {	},
 	/**
 	 * @see ./edit.js
 	 */

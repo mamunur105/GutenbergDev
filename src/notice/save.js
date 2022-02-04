@@ -29,9 +29,9 @@ const save = ({ attributes }) => {
 		<>
 		<div className="gutadns-alert-wrapper" >
 			<div className={`gutadns-alert ${type}`} style={{ backgroundColor: bgColor }}>
-				<div {...useBlockProps.save()} >
+				{/* <div {...useBlockProps.save()} > */}
 					<RichText.Content key="descriptioneditable" className="alert-description" tagName="p" value={content} />
-				</div>
+				{/* </div> */}
 			</div>
 		</div>
 		</>

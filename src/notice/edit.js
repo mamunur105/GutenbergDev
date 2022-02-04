@@ -12,7 +12,6 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import {
-	useBlockProps,
 	RichText
 } from '@wordpress/block-editor';
 
@@ -50,7 +49,6 @@ const Edit = ( { attributes, setAttributes } ) => {
 
 	return (
 		<div className="gutadns-alert-wrapper" >
-			<div { ...useBlockProps() } >
 			{ blockControls( attributes , setAttributes ) }
 			<div className={`gutadns-alert ${type}`}
 					style={ { backgroundColor: bgColor} }
@@ -63,7 +61,6 @@ const Edit = ( { attributes, setAttributes } ) => {
 						value={content}
 						onChange={ onChangeContent }
 					/>
-			</div>
 			</div>
 		</div >
 	);
