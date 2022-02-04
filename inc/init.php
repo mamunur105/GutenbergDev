@@ -53,7 +53,7 @@ final class UTBFG {
 	 *
 	 * @return void
 	 */
-	public function add_theme_suport(){
+	public function add_theme_suport() {
 		add_theme_support( 'custom-spacing' );
 	}
 	/**
@@ -82,8 +82,8 @@ final class UTBFG {
 	 * @return void
 	 */
 	public function create_gutenblock_addons_scripts() {
-		$asset_file = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
-		$asset_frontend = include( UTBFG_PLUGIN_DIR . '/build/index.asset.php');
+		$asset_file     = include UTBFG_PLUGIN_DIR . 'build/index.asset.php';
+		$asset_frontend = include UTBFG_PLUGIN_DIR . 'build/index.asset.php';
 
 		wp_register_script(
 			'blocks-script',
@@ -124,18 +124,20 @@ final class UTBFG {
 
 	/**
 	 * Cloning is forbidden.
+	 *
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'grgblock' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning is forbidden.', 'grgblock' ), '1.0.0' );
 	}
 
 	/**
 	 * Universalizing instances of this class is forbidden.
+	 *
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Universalizing instances of this class is forbidden.', 'grgblock' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Universalizing instances of this class is forbidden.', 'grgblock' ), '1.0.0' );
 	}
 
 
@@ -145,24 +147,24 @@ final class UTBFG {
 	 * @return void
 	 */
 	// public function create_gutenblock_addons_init() {
-	// 	$block_list = array(
-	// 		'gutenblock-addons/counterup' => array(),
-	// 		'gutenblock-addons/notice'    => array(),
-	// 	);
-	// 	foreach ( $block_list as $key => $array ) {
-	// 		register_block_type( $key, $array );
-	// 	}
+	// $block_list = array(
+	// 'gutenblock-addons/counterup' => array(),
+	// 'gutenblock-addons/notice'    => array(),
+	// );
+	// foreach ( $block_list as $key => $array ) {
+	// register_block_type( $key, $array );
+	// }
 	// }
 
 }
 
 
 /**
- * @return UTBFG
+ * @return utbfg
  */
-function UTBFG() {
+function utbfg() {
 	return UTBFG::init();
 }
-//fire off the plugin
-UTBFG();
+// fire off the plugin
+utbfg();
 

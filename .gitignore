@@ -25,8 +25,8 @@ node_modules/
 
 # dotenv environment variables file
 .env
+yarn.lock
 # Plugins file
 .editorconfig
-build
 dist
 guttenberg-blocks.zip
