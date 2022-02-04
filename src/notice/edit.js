@@ -50,11 +50,11 @@ const Edit = ( { attributes, setAttributes } ) => {
 
 	return (
 		<div className="gutadns-alert-wrapper" >
+			<div { ...useBlockProps() } >
+			{ blockControls( attributes , setAttributes ) }
 			<div className={`gutadns-alert ${type}`}
 					style={ { backgroundColor: bgColor} }
 				>
-				<div { ...useBlockProps() } >
-					{ blockControls( attributes , setAttributes ) }
 					<RichText
 						key='descriptioneditable'
 						className='alert-description'
@@ -63,7 +63,7 @@ const Edit = ( { attributes, setAttributes } ) => {
 						value={content}
 						onChange={ onChangeContent }
 					/>
-				</div>
+			</div>
 			</div>
 		</div >
 	);

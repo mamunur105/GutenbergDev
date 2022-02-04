@@ -28,10 +28,6 @@ const FileManagerPluginConfig = (production) => {
 						destination: './dist/guttenberg-blocks/guttenberg-blocks.php'
 					},
 					{
-						source: './html-template',
-						destination: './dist/guttenberg-blocks/html-template'
-					},
-					{
 						source: './inc',
 						destination: './dist/guttenberg-blocks/inc'
 					},
@@ -50,7 +46,7 @@ const FileManagerPluginConfig = (production) => {
 		}
 	};
 
-	return production ? config : Devconfig;
+	return production ? config : {};
 };
 
 module.exports = FileManagerPluginConfig;
