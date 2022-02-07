@@ -1,0 +1,73 @@
+.feature-box {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+	.fbox-icon {
+		width: 5.5rem;
+		height: 4rem;
+		padding: 0 0.75rem;
+	}
+	.fbox-content {
+		-ms-flex-preferred-size: 0;
+		flex-basis: 0;
+		-ms-flex-positive: 1;
+		flex-grow: 1;
+		min-width: 0;
+		max-width: 100%;
+		padding: 0 0.75rem;
+	}
+	.fbox-icon a, .fbox-icon i, .fbox-icon img {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+	}
+}
+
+.fbox-effect .fbox-icon i {
+    -webkit-transition: background-color .3s,color .3s;
+    -o-transition: background-color .3s,color .3s;
+    transition: background-color .3s,color .3s;
+}
+
+.fbox-effect .fbox-icon i {
+    z-index: 1;
+}
+.fbox-icon i {
+    font-style: normal;
+    font-size: 28px;
+    line-height: 4rem;
+    text-align: center;
+}
+.fbox-icon i, .fbox-icon img {
+    border-radius: 50%;
+    background-color: #1abc9c;
+}
+
+.fbox-content {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0 0.75rem;
+}
+.fbox-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Poppins,sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: #333;
+}
+.fbox-content p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: #999;
+}

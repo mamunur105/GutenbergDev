@@ -1,10 +1,90 @@
+@font-face {
+	font-family: 'fontello';
+	src: url('../font/fontello.eot?71583642');
+	src: url('../font/fontello.eot?71583642#iefix') format('embedded-opentype'),
+		url('../font/fontello.woff2?71583642') format('woff2'), url('../font/fontello.woff?71583642') format('woff'),
+		url('../font/fontello.ttf?71583642') format('truetype'),
+		url('../font/fontello.svg?71583642#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.utbfg {
+	[class^="icon-"]:before,
+	[class*=" icon-"]:before {
+		font-family: "fontello";
+		font-style: normal;
+		font-weight: normal;
+		speak: never;
+
+		display: inline-block;
+		text-decoration: inherit;
+		width: 1em;
+		margin-right: .2em;
+		text-align: center;
+		/* opacity: .8; */
+
+		/* For safety - reset parent styles, that can break glyph codes*/
+		font-variant: normal;
+		text-transform: none;
+
+		/* fix buttons height, for twitter bootstrap */
+		line-height: 1em;
+
+		/* Animation center compensation - margins should be symmetric */
+		/* remove if not needed */
+		margin-left: .2em;
+
+		/* you can be more comfortable with increased icons size */
+		/* font-size: 120%; */
+
+		/* Font smoothing. That was taken from TWBS */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		/* Uncomment for 3D effect */
+		/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+	}
+
+	.icon-emo-happy:before {
+		content: '\e800';
+	} /* '' */
+	.icon-glass:before {
+		content: '\e801';
+	} /* '' */
+	.icon-search:before {
+		content: '\e803';
+	} /* '' */
+	.icon-plus:before {
+		content: '\e805';
+	} /* '' */
+	.icon-cancel:before {
+		content: '\e808';
+	} /* '' */
+	.icon-mail-alt:before {
+		content: '\f0e0';
+	} /* '' */
+	.icon-dollar:before {
+		content: '\f155';
+	} /* '' */
+	.icon-mail-squared:before {
+		content: '\f199';
+	} /* '' */
+	.icon-paper-plane:before {
+		content: '\f1d8';
+	} /* '' */
+	.icon-paper-plane-empty:before {
+		content: '\f1d9';
+	} /* '' */
+}
+
 $columns: 12;
 $devices: 'xl', 'lg', 'md', 'sm', 'xs';
 
 * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
+	margin: 0;
+	padding: 0;
+	outline: 0;
 	box-sizing: border-box;
 }
 %columns-styles {
@@ -13,19 +93,18 @@ $devices: 'xl', 'lg', 'md', 'sm', 'xs';
 	padding-right: 15px;
 	padding-left: 15px;
 }
-.entry-content{
+.entry-content {
 	.gutadns-alert h2,
-	.wp-block{
+	.wp-block {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 }
 
-
-.text-center{
+.text-center {
 	text-align: center;
 }
-.utbfg-{
+.utbfg- {
 	&container {
 		width: 1170px;
 		padding-right: 15px;
@@ -39,15 +118,15 @@ $devices: 'xl', 'lg', 'md', 'sm', 'xs';
 		margin-right: -15px;
 		margin-left: -15px;
 	}
-	&col-{
+	&col- {
 		@each $size in $devices {
-			&#{$size}-{
+			&#{$size}- {
 				@for $i from 1 through $columns {
 					&#{$i} {
 						@extend %columns-styles;
-						-ms-flex: 0 0 calc( (100% * #{$i}) / #{$columns} );
-						flex: 0 0 calc( (100% * #{$i}) / #{$columns} );
-						max-width: calc( (100% * #{$i}) / #{$columns} );
+						-ms-flex: 0 0 calc( (100% * #{$i}) / #{$columns});
+						flex: 0 0 calc( (100% * #{$i}) / #{$columns});
+						max-width: calc( (100% * #{$i}) / #{$columns});
 					}
 				}
 			}
