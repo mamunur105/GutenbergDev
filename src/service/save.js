@@ -23,20 +23,30 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 const save = ({ attributes }) => {
-	const { content, type, bgColor } = attributes;
+	const { content, title, bgColor } = attributes;
+	const redBackground = {
+		backgroundColor: bgColor,
+		color: '#fff',
+		padding: '20px',
+	};
 
+	const blockProps = useBlockProps.save( { style: redBackground } );
 	return (
-		<>
-		<div className="utbfg feature-box fbox-effect">
+		<div { ...blockProps } className="utbfg feature-box fbox-effect">
 			<div className="fbox-icon">
 				<a href="#"><i className="icon-emo-happy"></i></a>
 			</div>
 			<div className="fbox-content">
-				<h3>Responsive Layout</h3>
-				<p>Powerful Layout with Responsive functionality that can be adapted to any screen size. Resize browser to view.</p>
+				<RichText.Content
+                    tagName="h3"
+                    value={ title }
+                />
+				<RichText.Content
+                    tagName="p"
+                    value={ content }
+                />
 			</div>
 		</div>
-		</>
 	);
 }
 

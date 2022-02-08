@@ -1,4 +1,7 @@
 const attributes = {
+	title: {
+		type: 'string'
+	},
 	content: {
 		type: 'string',
 		source: 'html',

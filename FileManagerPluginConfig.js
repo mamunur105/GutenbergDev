@@ -46,7 +46,7 @@ const FileManagerPluginConfig = (production) => {
 		}
 	};
 
-	return production ? config : Devconfig;
+	return production ? config : {};
 };
 
 module.exports = FileManagerPluginConfig;

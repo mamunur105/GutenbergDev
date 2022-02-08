@@ -4,17 +4,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-
+.editor-styles-wrapper p,
 .fbox-content h3 {
     margin-top: 0;
 }
 
-.editor-styles-wrapper .feature-box h3, 
+.editor-styles-wrapper .feature-box h3,
 .editor-styles-wrapper .feature-box .h3 {
-    font-size: 16px;
-    font-weight: 600;
-    font-family: Poppins,sans-serif;
-    text-transform: uppercase;
     margin-bottom: 0;
-    color: #333;
 }

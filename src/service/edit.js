@@ -11,10 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import {
-	RichText
-} from '@wordpress/block-editor';
 
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 import blockControls from './blockControls';
 
@@ -41,20 +39,45 @@ const Edit = ( { attributes, setAttributes } ) => {
 	const {
 		content,
 		type,
+		title,
 		bgColor
 	} = attributes;
+	const greenBackground = {
+		backgroundColor: bgColor,
+		color: '#fff',
+		padding: '20px',
+	};
+
+	const blockProps = useBlockProps( { style: greenBackground } );
+
 	const onChangeContent = content => {
 		setAttributes({ content });
 	}
 
+	const onChangeTitle = title => {
+		setAttributes({ title });
+	}
+
+
 	return (
-		<div className="utbfg feature-box fbox-effect">
+		<div { ...blockProps } className="utbfg feature-box fbox-effect">
+			{ blockControls( attributes , setAttributes ) }
 			<div className="fbox-icon">
 				<a href="#"><i className="icon-emo-happy"></i></a>
 			</div>
 			<div className="fbox-content">
-				<h3>Responsive Layout</h3>
-				<p>Powerful Layout with Responsive functionality that can be adapted to any screen size. Resize browser to view.</p>
+				<RichText
+					tagName="h3"
+					placeholder = "Block Title"
+					value={title}
+					onChange={ onChangeTitle }
+				/>
+				<RichText
+                    tagName="p"
+					placeholder = "Block Description"
+                    onChange={ onChangeContent }
+                    value={ content }
+                />
 			</div>
 		</div>
 	);
