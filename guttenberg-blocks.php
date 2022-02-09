@@ -29,9 +29,11 @@
  * @return array.
  */
 
+require_once __DIR__ . './vendor/autoload.php';
+
 define( 'UTBFG_VERSION', '1.0.0' );
 define( 'UTBFG_PLUGIN_PREFIX', 'UTBFG' );
-define( 'UTBFG_PLUGIN_NAME', 'unique-addons-blocks-for-gutenberg' );
+define( 'UTBFG_PLUGIN_NAME', 'guttenberg-blocks' );
 define( 'UTBFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'UTBFG_PLUGIN_FILE', __FILE__ );
 define( 'UTBFG_URL', plugins_url( '', UTBFG_PLUGIN_FILE ) );
@@ -40,5 +42,6 @@ define( 'UTBFG_ASSETS_BUILD', UTBFG_URL . '/build' );
 /**
  * Main File.
  */
-require_once UTBFG_PLUGIN_DIR . '/inc/init.php';
+
+require_once UTBFG_PLUGIN_DIR . 'app/Utbfg.php';
 

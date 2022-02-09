@@ -1,0 +1,15 @@
+{
+	"name": "rmamunur105/gutenbergdev",
+	"authors": [
+		{
+			"name": "Md Mamunur Rashid",
+			"email": "rmamunur105@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Utbfg\\": "app"
+		}
+	},
+	"description": ""
+}
