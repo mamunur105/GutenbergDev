@@ -7,10 +7,6 @@ const attributes = {
 		source: 'html',
 		selector: 'p'
 	},
-	type: {
-		type: 'string',
-		default: 'success'
-	},
 	bgColor : {
 		type: 'string'
 	},

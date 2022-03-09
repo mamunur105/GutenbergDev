@@ -365,10 +365,6 @@ const attributes = {
     source: 'html',
     selector: 'p'
   },
-  type: {
-    type: 'string',
-    default: 'success'
-  },
   bgColor: {
     type: 'string'
   }
@@ -396,15 +392,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const blockControls = (attributes, setAttributes) => {
   const {
-    type,
     bgColor
   } = attributes;
-
-  const onChangeType = type => {
-    setAttributes({
-      type
-    });
-  };
 
   const onbgColorChange = bgColor => {
     setAttributes({
@@ -417,26 +406,6 @@ const blockControls = (attributes, setAttributes) => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
     header: ""
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: "Notice Type",
-    initialOpen: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-    label: "TYPE",
-    value: type,
-    options: [{
-      label: 'Danger',
-      value: 'danger'
-    }, {
-      label: 'Success',
-      value: 'success'
-    }, {
-      label: 'Info',
-      value: 'info'
-    }, {
-      label: 'Warning',
-      value: 'warning'
-    }],
-    onChange: onChangeType
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: "Customize BG Color",
     initialOpen: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
@@ -509,7 +478,6 @@ const Edit = _ref => {
   } = _ref;
   const {
     content,
-    type,
     title,
     bgColor
   } = attributes;

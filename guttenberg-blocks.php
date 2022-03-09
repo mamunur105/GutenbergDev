@@ -10,7 +10,7 @@
  * Plugin Name:       Unique & Trendy Blocks For Gutenberg
  * Plugin URI:        https://wordpress.org/plugins/unique-trendy-blocks-for-gutenberg
  * Description:       This is for woocommerce Category,Related product, And also For Promotional slider.
- * Version:           1.0.0
+ * Version:           5.0.0
  * Requires at least: 5.0
  * Requires PHP:      7.0
  * Author:            Mamunur rashid

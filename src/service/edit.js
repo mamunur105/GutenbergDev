@@ -38,7 +38,6 @@ import blockControls from './blockControls';
 const Edit = ( { attributes, setAttributes } ) => {
 	const {
 		content,
-		type,
 		title,
 		bgColor
 	} = attributes;

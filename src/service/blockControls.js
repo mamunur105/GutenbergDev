@@ -7,12 +7,8 @@ import {
 
 const blockControls = ( attributes, setAttributes ) => {
     const {
-        type,
         bgColor
     } = attributes;
-    const onChangeType = type => {
-        setAttributes({ type });
-    }
     const onbgColorChange = bgColor  => {
         setAttributes({ bgColor });
     }
@@ -20,24 +16,6 @@ const blockControls = ( attributes, setAttributes ) => {
     return (
         <InspectorControls key="setting">
             <Panel header="" >
-                <PanelBody
-                    title="Notice Type"
-                    initialOpen={ true }
-                    >
-                    <PanelRow>
-                        <SelectControl
-                            label="TYPE"
-                            value={ type }
-                            options={ [
-                                { label: 'Danger', value: 'danger' },
-                                { label: 'Success', value: 'success' },
-                                { label: 'Info', value: 'info' },
-                                { label: 'Warning', value: 'warning' },
-                            ] }
-                            onChange={ onChangeType }
-                        />
-                    </PanelRow>
-                </PanelBody>
                 <PanelBody
                     title="Customize BG Color"
                     initialOpen={ true }
